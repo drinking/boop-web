@@ -1,7 +1,7 @@
 <template>
   <a-select
     mode="multiple"
-    placeholder="Inserted are removed"
+    placeholder="Chose your functions"
     :value="selectedItems"
     style="width: 80%"
     @change="handleChange">
