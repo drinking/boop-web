@@ -1,20 +1,25 @@
 <template>
   <div id="app">
-    <HelloWorld id="command" @handlers="handle"/>
-    <InputView id="editor" @transfer="update"/>
-    <p style="width: 80%; margin-top:30px;" >{{ output }}</p>
+    <h2 id="title" >Boop Web</h2>
+    <FunctionHub @handlers="handle"/>
+    <EditArea id="editor" @transfer="update"/>
+    <pre style="width: 80%; margin-top:30px;overflow: auto;" >{{ output }}</pre>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import InputView from './components/EditArea.vue'
+import FunctionHub from './components/FunctionHub.vue'
+import EditArea from './components/EditArea.vue'
 
 export default {
   name: 'App',
+  beforeCreate: function() {
+        document.getElementsByTagName("body")[0]
+        .setAttribute("style","background-color:antiquewhite");
+  },
   components: {
-    HelloWorld,
-    InputView
+    FunctionHub,
+    EditArea
   },
   data() {
     return {
@@ -41,11 +46,27 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-color: antiquewhite;
 }
 
 #editor {
   margin-top:30px;
   width:80%;
   height: 300px;
+}
+
+#title {
+    font-size: 45px;
+    line-height: 46px;
+    /*font-family: 'Rubik', sans-serif;*/
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    max-width: 85%;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 60px;
+    color: #2e292c;
+    text-align: center;
 }
 </style>

@@ -12,13 +12,16 @@
 </template>
 
 <script>
-const OPTIONS = ['UpperCase', 'SplitBySpace'];
+const OPTIONS = ['UpperCase', 'SplitBySpace','RemoveSpace'];
 const METHODS = {
   'UpperCase': function(text){
     return text.toUpperCase()
   },
   'SplitBySpace': function(text){
-    return text.split(' ').join('<br>');
+    return text.split(' ').join('\n');
+  },
+  'RemoveSpace': function(text){
+    return text.replace(/\s/g,'');
   }
 }
 
