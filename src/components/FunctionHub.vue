@@ -12,37 +12,35 @@
 </template>
 
 <script>
-const OPTIONS = ['UpperCase', 'SplitBySpace','RemoveSpace'];
-const METHODS = {
-  'UpperCase': function(text){
-    return text.toUpperCase()
-  },
-  'SplitBySpace': function(text){
-    return text.split(' ').join('\n');
-  },
-  'RemoveSpace': function(text){
-    return text.replace(/\s/g,'');
-  }
-}
+import * as hub from '.././hub.js'
 
 export default {
+
+  created() {
+    this.options = hub.loadFuncs();
+  },
   data() {
     return {
       selectedItems: [],
+      options:[],
     };
   },
   computed: {
     filteredOptions() {
-      return OPTIONS.filter(o => !this.selectedItems.includes(o));
-    },
+      return this.options.filter(o => !this.selectedItems.includes(o));
+    }
   },
   methods: {
     handleChange(selectedItems) {
       this.selectedItems = selectedItems;
+      var _this = this;
       var handler = this.selectedItems.length == 0 
                     ? function() {return ""}
                     : this.selectedItems
-                        .map(key => METHODS[key])
+                        .map(key => {
+                          console.log(_this.mapper);
+                          return hub.mapFunc(key);
+                        })
                         .reduce((acc,cur) => function(text) { return cur(acc(text)) })
 
 

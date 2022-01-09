@@ -14,18 +14,18 @@ import EditArea from './components/EditArea.vue'
 export default {
   name: 'App',
   beforeCreate: function() {
-        document.getElementsByTagName("body")[0]
-        .setAttribute("style","background-color:antiquewhite");
-  },
-  components: {
-    FunctionHub,
-    EditArea
+    document.getElementsByTagName("body")[0]
+    .setAttribute("style","background-color:antiquewhite");
   },
   data() {
     return {
       output: '',
       editText:''
     };
+  },
+  components: {
+    FunctionHub,
+    EditArea
   },
   methods: {
     update(text) {
@@ -58,7 +58,6 @@ export default {
 #title {
     font-size: 45px;
     line-height: 46px;
-    /*font-family: 'Rubik', sans-serif;*/
     font-weight: 900;
     font-style: italic;
     text-transform: uppercase;
