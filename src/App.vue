@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h2 id="title" >Boop Web</h2>
+    <h2 id="title" >Weboop</h2>
     <FunctionHub @handlers="handle"/>
     <EditArea id="editor" @transfer="update"/>
     <pre style="width: 80%; margin-top:30px;overflow: auto;" >{{ output }}</pre>
