@@ -1,17 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld id="command" @handlers="handle"/>
+    <InputView id="editor" @transfer="update"/>
+    <p style="width: 80%; margin-top:30px;" >{{ output }}</p>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import InputView from './components/EditArea.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    InputView
+  },
+  data() {
+    return {
+      output: '',
+      editText:''
+    };
+  },
+  methods: {
+    update(text) {
+      this.editText = text;
+    },
+    handle(operation) {
+      this.output = operation(this.editText)
+    }
   }
 }
 </script>
@@ -24,5 +41,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+#editor {
+  margin-top:30px;
+  width:80%;
+  height: 300px;
 }
 </style>
