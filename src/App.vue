@@ -20,7 +20,10 @@ export default {
   data() {
     return {
       output: '',
-      editText:''
+      editText:'',
+      operation:function() {
+        return ""
+      }
     };
   },
   components: {
@@ -30,9 +33,11 @@ export default {
   methods: {
     update(text) {
       this.editText = text;
+      this.output = this.operation(text);
     },
     handle(operation) {
-      this.output = operation(this.editText)
+      this.operation = operation;
+      this.output = operation(this.editText);
     }
   }
 }
