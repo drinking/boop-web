@@ -22,6 +22,7 @@
 </svg>
     <br/>
     <FunctionHub @handlers="handle"/>
+    <br/>
     <EditArea id="editor" @transfer="update"/>
     <br/>
     <code id="output" >{{ output }}</code>
@@ -78,13 +79,15 @@ export default {
 #editor {
   margin-top:30px;
   margin-bottom:30px;
-  width:60%;
+  width:80%;
+  max-width: 600px;
   height: 300px;
 }
 
 #output {
   color: #fff;
-  width: 60%; 
+  width: 80%; 
+  max-width: 600px;
   overflow: auto; 
   display: inline-block;
   word-wrap:break-word;

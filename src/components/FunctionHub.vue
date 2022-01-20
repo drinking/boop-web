@@ -3,7 +3,7 @@
     mode="multiple"
     placeholder="Chose your functions"
     :value="selectedItems"
-    style="width: 60%;margin-top: 30px;"
+    style="width: 80%;margin-top: 30px; max-width: 600px;"
     @change="handleChange">
     <a-select-option v-for="item in filteredOptions" :key="item" :value="item">
       {{ item }}
