@@ -1,9 +1,12 @@
 <template>
   <div id="app">
-    <h2 id="title" >Weboop</h2>
+
+    <img src="./assets/_WEBOOP.svg">
+    <br/>
     <FunctionHub @handlers="handle"/>
     <EditArea id="editor" @transfer="update"/>
-    <pre style="width: 80%; margin-top:30px;overflow: auto;" >{{ output }}</pre>
+    <br/>
+    <code style="color: #fff;width: 60px; margin-top:30px;overflow: auto;" >{{ output }}</code>
   </div>
 </template>
 
@@ -15,7 +18,7 @@ export default {
   name: 'App',
   beforeCreate: function() {
     document.getElementsByTagName("body")[0]
-    .setAttribute("style","background-color:antiquewhite");
+    .setAttribute("style","background-color:#121212;");
   },
   data() {
     return {
@@ -51,26 +54,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  background-color: antiquewhite;
+  background-color: #121212;
 }
 
 #editor {
   margin-top:30px;
-  width:80%;
+  margin-bottom:30px;
+  width:60%;
   height: 300px;
-}
-
-#title {
-    font-size: 45px;
-    line-height: 46px;
-    font-weight: 900;
-    font-style: italic;
-    text-transform: uppercase;
-    max-width: 85%;
-    margin: auto;
-    margin-bottom: 30px;
-    margin-top: 60px;
-    color: #2e292c;
-    text-align: center;
 }
 </style>
