@@ -94,4 +94,15 @@ export default {
   text-align: left;
   white-space: pre-line;
 }
+
+svg { fill: #fff; } 
+.ant-select-selection__choice__content {
+  margin-top: 1px;
+}
+.ant-select-selection__choice__remove {
+  margin-top: 1px; 
+  margin-right: 4px;
+}
+
+
 </style>
