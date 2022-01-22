@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg width="339.649" height="87.891" viewBox="0 0 539.649 87.891" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+<svg width="339.649" height="87.891" viewBox="0 0 478.146 81.656" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
   <defs>
     <filter id="drop-shadow-filter-0" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="drop-shadow 1 7 7 0 0.3 rgba(255,0,72,1)">
       <feGaussianBlur in="SourceAlpha" stdDeviation="0"/>

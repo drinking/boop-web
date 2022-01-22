@@ -1,4 +1,11 @@
-# antd-demo
+## About Stream
+
+Stream is a no server-side web application deploied on github page.
+It is inspired by [Boop](https://boop.okat.best/) an MacOS application which can't runn
+on other platforms. 
+So Stream appeared. It helps to process text and expects to cover common usage scenarios.
+Text looks like stream flowing from one function to another and becomes a final output. 
+
 
 ## Project setup
 ```
