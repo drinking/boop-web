@@ -33,6 +33,7 @@ npm run lint
 ```
 git add -f dist
 git subtree push --prefix dist origin gh-pages
+font Monoton
 ```
 
 ### Customize configuration
