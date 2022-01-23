@@ -23,7 +23,7 @@
   </g>
 </svg>
     <div class="about" >
-      <a href="https://github.com/drinking/boop-web/wiki/Woop-Home" target="_blank">?</a>
+      <a href="https://github.com/drinking/boop-web/wiki" target="_blank">?</a>
     </div>
     <br/>
     <FunctionHub @handlers="handle"/>
