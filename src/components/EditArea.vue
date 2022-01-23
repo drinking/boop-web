@@ -1,5 +1,5 @@
 <template>
-  <a-textarea placeholder="Text to convert..." :rows="4"
+  <a-textarea placeholder="Raw text" :rows="4"
   @change="handleChange"/>
 </template>
 

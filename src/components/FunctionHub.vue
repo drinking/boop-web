@@ -1,7 +1,7 @@
 <template>
   <a-select
     mode="multiple"
-    placeholder="Chose your functions"
+    placeholder="Choose functions"
     :value="selectedItems"
     style="width: 80%;margin-top: 30px; max-width: 600px;"
     @change="handleChange">
@@ -59,17 +59,31 @@ export default {
   methods: {
     handleChange(selectedItems) {
       this.selectedItems = selectedItems;
-      var handler = this.selectedItems.length == 0 
-                    ? function() {return ""}
-                    : this.selectedItems
-                        .map(key => {
-                          return hub.mapFunc(key);
-                        })
-                        .reduce((acc,cur) => function(text) { return cur(acc(text)) })
+
+      var handler;
+
+      var isMan = this.selectedItems.length > 0 && this.selectedItems[0] =='usage';
+
+      if(isMan) {
+          var lastText = selectedItems[selectedItems.length-1]
+          handler = function() {
+            return hub.mapUsage(lastText)
+          }
+      }else {
+        // default handler display usage
+        handler = this.selectedItems.length == 0 
+                      ? function() {return ""}
+                      : this.selectedItems
+                          .map(key => {
+                            return hub.mapFunc(key);
+                          })
+                          .reduce((acc,cur) => function(text) { return cur(acc(text)) })
+
+      }
+
       this.$emit('handlers',function(text){
         return handler(text)
       })
-
       setTimeout(function(){ updateColor(selectedItems); }, 50);
 
     },

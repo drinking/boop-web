@@ -67,6 +67,7 @@ export default {
       this.editText = text;
       this.output = this.operation(text);
       let button = document.getElementById("copyButton");
+
       button.hidden = this.output.length > 0 ? false : true;
     },
     handle(operation) {

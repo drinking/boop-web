@@ -1,69 +1,73 @@
-var METHODS = {
-  'UpperCase': function(text){
-    return text.toUpperCase()
-  },
-  'LowerCase': function(text){
-    return text.toLowerCase()
-  },
-  'SplitBySpace': function(text){
-    return text.split(' ').join('\n');
-  },
-  'RemoveSpace': function(text){
-    return text.replace(/\s/g,'');
-  },
-  'Stringify': function(text) {
-    return JSON.stringify(text);
-  },
-  'JoinLines': function(text) {
-    return text.replace(/\n/g, '');
-  },
-  'JoinLinesWithComma': function(text) {
-    return text.replace(/\n/g, ',');
-  },
-  'JoinLinesWithSpace': function(text) {
-    return text.replace(/\n/g, ' ');
-  },
-  'DateToTimestamp': function(text) {
-    let parsedDate = Date.parse(text)
-    text = parsedDate / 1000
-    return text.replace(/\n/g, ' ');
-  },
-  'TimestampToDate': function(text) {
-    let unix_timestamp = text
-    var date = new Date(unix_timestamp * 1000);
-    return date.toLocaleDateString().replace(/\//g, "-") + " " + date.toTimeString().substr(0, 8); 
-  },
-  'Run': function (text) {
-    const script = text.replace(/\n\n\/\/ Result:[\s\S]*$/, '');
-    let output = '';
-    try {
-        output = eval(script);
-        if (typeof output !== 'string') {
-            output = JSON.stringify(output, null, 2);
-        }
-    } catch (e) {
-        output = 'error'
+function callEval(text) {
+  const script = text.replace(/\n\n\/\/ Result:[\s\S]*$/, '');
+  let output = '';
+  try {
+    output = eval(script);
+    if (typeof output !== 'string') {
+      output = JSON.stringify(output, null, 2);
     }
-
-    return output;
-  },
-  'FormatJSON': function(text) {
-      try {
-        return  JSON.stringify(JSON.parse(text), null, 2);
-      }catch(error) {
-        return "error"
-      }
-  },
-  'Sort':function(text) {
-      let sorted = text.replace(/\n$/, '').split('\n')
-      .sort((a, b) => a.localeCompare(b))
-      .join('\n');
-
-      if (sorted === text) {
-        sorted = sorted.split('\n').reverse().join('\n');
-      }
-      return sorted;
+  } catch (e) {
+    output = 'error'
   }
+
+  return output;
 }
 
-export {METHODS}
+var METHODS = {
+
+  'UpperCase': {
+    fuc: function(text) {
+      return text.toUpperCase()
+    },
+    usage: "Make text to be UpperCase"
+  },
+  'LowerCase': {
+    func: function(text) {
+      return text.toLowerCase()
+    },
+    usage: "Make text to be LowerCase"
+  },
+  'SplitBySpace': {
+    func: function(text) {
+      return text.split(' ').join('\n');
+    },
+    usage: "Split text by space into a list of text"
+  },
+  'RemoveSpace': {
+    func: function(text) {
+      return text.replace(/\s/g, '');
+    },
+    usage: "Remove all whitespace from text"
+  },
+  'JoinLines': {
+    func: function(text) {
+      return text.replace(/\n/g, '');
+    },
+    usage: "Join multiple lines of text into one line"
+  },
+  'JoinLinesWithComma': {
+    func: function(text) {
+      return text.replace(/\n/g, ',');
+    },
+    usage: "Join multiple lines into one line with comma seperated"
+  },
+  'JoinLinesWithSpace': {
+    func: function(text) {
+      return text.replace(/\n/g, ' ');
+    },
+    usage: "Join multiple lines into one line with space seperated"
+  },
+  'Run': {
+    func:callEval,
+    usage: "Run any script through eval(), if you know javascript"
+  },
+  'Calculate': {
+    func:callEval,
+    usage: "A simple Calculator"
+  }
+
+}
+
+export {
+  METHODS
+}
