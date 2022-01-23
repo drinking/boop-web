@@ -15,6 +15,10 @@ import {
 	METHODS as listFunc
 } from './lib/list.js'
 
+import {
+	METHODS as templateFunc
+} from './lib/template.js'
+
 const defaultMethods = {
 	'usage': {
 		func: function() {
@@ -30,7 +34,7 @@ var hub = {
 
 function loadFuncs() {
 	hub = Object.assign({}, defaultMethods, pickerFunc,
-		simpleFunc, jsonFunc, timeFunc, listFunc);
+		simpleFunc, jsonFunc, timeFunc, listFunc, templateFunc);
 	return Object.keys(hub);
 }
 

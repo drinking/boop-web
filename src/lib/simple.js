@@ -58,12 +58,20 @@ var METHODS = {
     usage: "Join multiple lines into one line with space seperated"
   },
   'Run': {
-    func:callEval,
+    func: callEval,
     usage: "Run any script through eval(), if you know javascript"
   },
   'Calculate': {
-    func:callEval,
+    func: callEval,
     usage: "A simple Calculator"
+  },
+  'TrimSpace': {
+    func: function(text) {
+      return text.split('\n').map(c=> {
+        return c.replace(/\s\s+/g, ' ').trim()
+      }).join('\n')
+    },
+    usage: "Remove start and end whitespaces and memrge several into one"
   }
 
 }
