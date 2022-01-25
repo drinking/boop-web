@@ -1,5 +1,5 @@
 <template>
-  <a-textarea placeholder="Raw text" :rows="4"
+  <a-textarea placeholder="Text filed, e.g. Type Hi above and your name below, and then UpperCase above, having fun." :rows="4"
   @change="handleChange"/>
 </template>
 

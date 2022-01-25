@@ -1,7 +1,7 @@
 <template>
   <a-select
     mode="multiple"
-    placeholder="Choose functions"
+    placeholder="Functions"
     :value="selectedItems"
     style="width: 80%;margin-top: 30px; max-width: 600px;"
     @change="handleChange">
@@ -62,7 +62,7 @@ export default {
 
       var handler;
 
-      var isMan = this.selectedItems.length > 0 && this.selectedItems[0] =='usage';
+      var isMan = this.selectedItems.length > 0 && this.selectedItems[0] =='Usage';
 
       if(isMan) {
           var lastText = selectedItems[selectedItems.length-1]

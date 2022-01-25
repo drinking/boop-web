@@ -72,7 +72,13 @@ var METHODS = {
       }).join('\n')
     },
     usage: "Remove start and end whitespaces and memrge several into one"
-  }
+  },
+  'Hi': {
+    func: function(text) {
+      return 'Hi ' + text + ', thnaks for trying this tool!'
+    },
+    usage: "Hello World Example!"
+  },
 
 }
 

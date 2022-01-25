@@ -20,7 +20,7 @@ import {
 } from './lib/template.js'
 
 const defaultMethods = {
-	'usage': {
+	'Usage': {
 		func: function() {
 
 		},
