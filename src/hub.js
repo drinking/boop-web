@@ -25,7 +25,13 @@ const defaultMethods = {
 
 		},
 		usage: "Select other function to view its usage. More details on wiki page by click (?)."
-	}
+	},
+  'Hi': {
+    func: function(text) {
+      return 'Hi ' + text + ', why not try UpperCase above?'
+    },
+    usage: "Hello World Example!"
+  }
 }
 
 var hub = {
