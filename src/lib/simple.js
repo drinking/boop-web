@@ -16,7 +16,7 @@ function callEval(text) {
 var METHODS = {
 
   'UpperCase': {
-    fuc: function(text) {
+    func: function(text) {
       return text.toUpperCase()
     },
     usage: "Make text to be UpperCase"

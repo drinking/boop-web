@@ -12,7 +12,7 @@ var METHODS = {
         let params = array[i].split(" ");
         var template = array[0];
         for (var j = params.length - 1; j >= 0; j--) {
-            template = template.replaceAll("$"+j,params[j])
+          template = template.replaceAll("$" + j, params[j])
         }
         result.push(template)
       }

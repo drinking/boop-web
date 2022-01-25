@@ -7,7 +7,16 @@ var METHODS = {
   },
   'JSONify': {
     func: function(text) {
-      return JSON.parse(text);
+      var formated = text.trim()
+      if(text[0] != '"') {
+        formated = '"' + formated;
+      }
+
+      if(text[text.length-1] != '"') {
+        formated = formated + '"';
+      }
+
+      return JSON.parse(formated);
     },
     usage: "Transform text to JSON"
   },
