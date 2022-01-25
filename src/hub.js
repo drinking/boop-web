@@ -28,7 +28,7 @@ const defaultMethods = {
 	},
   'Hi': {
     func: function(text) {
-      return 'Hi ' + text + ', why not try UpperCase above?'
+      return 'Hi ' + text + ', why not append UpperCase above?'
     },
     usage: "Hello World Example!"
   }

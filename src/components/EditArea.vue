@@ -1,5 +1,5 @@
 <template>
-  <a-textarea placeholder="Text filed, e.g. Type Hi above and your name here." :rows="4"
+  <a-textarea placeholder="Text filed, e.g. Type Hi above then Tab here and input your name." :rows="4"
   @change="handleChange"/>
 </template>
 
