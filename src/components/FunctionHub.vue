@@ -1,6 +1,7 @@
 <template>
   <a-select
     mode="multiple"
+    autoClearSearchValue=true
     placeholder="Functions"
     :value="selectedItems"
     style="width: 80%;margin-top: 30px; max-width: 600px;"
@@ -62,15 +63,14 @@ export default {
 
       var handler;
 
-      var isMan = this.selectedItems.length > 0 && this.selectedItems[0] =='Usage';
+      var isUsage = this.selectedItems.length > 0 && this.selectedItems[0] =='Usage';
 
-      if(isMan) {
+      if(isUsage) {
           var lastText = selectedItems[selectedItems.length-1]
           handler = function() {
             return hub.mapUsage(lastText)
           }
-      }else {
-        // default handler display usage
+      } else {
         handler = this.selectedItems.length == 0 
                       ? function() {return ""}
                       : this.selectedItems
@@ -81,10 +81,14 @@ export default {
 
       }
 
-      this.$emit('handlers',function(text){
-        return handler(text)
-      })
+      this.$emit('handlers',handler)
       setTimeout(function(){ updateColor(selectedItems); }, 50);
+
+      var isRedirect = this.selectedItems.length > 0 && this.selectedItems[this.selectedItems.length-1] =='Redirect';
+      if(isRedirect) {
+        this.selectedItems = []
+        this.$emit('redirect',function(){})
+      }
 
     },
   },

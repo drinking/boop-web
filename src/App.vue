@@ -26,9 +26,9 @@
       <a href="https://github.com/drinking/boop-web/wiki" target="_blank">?</a>
     </div>
     <br/>
-    <FunctionHub @handlers="handle"/>
+    <FunctionHub @handlers="handle" @redirect="redirect" />
     <br/>
-    <EditArea id="editor" @transfer="update"/>
+    <EditArea id="editor" @transfer="update" ref="editor"/>
     <br/>
     <code id="output" >
       <button id="copyButton" v-on:click="copy" hidden=true>Copy</button>
@@ -40,8 +40,6 @@
 <script>
 import FunctionHub from './components/FunctionHub.vue'
 import EditArea from './components/EditArea.vue'
-
-
 
 export default {
   name: 'App',
@@ -83,6 +81,9 @@ export default {
       setTimeout(function(){
           button.innerHTML = "Copy"
       },1000);
+    },
+    redirect() {
+      this.$refs.editor.updateContent(this.output);
     }
   }
 }

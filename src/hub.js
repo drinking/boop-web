@@ -31,6 +31,12 @@ const defaultMethods = {
       return 'Hi ' + text + ', why not append UpperCase above?'
     },
     usage: "Hello World Example!"
+  },
+  'Redirect' :{
+  	func: function(text) {
+  		return text;
+  	},
+  	usage: "Redirect the output as input and clear current functions"
   }
 }
 
