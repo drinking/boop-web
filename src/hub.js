@@ -19,6 +19,10 @@ import {
 	METHODS as templateFunc
 } from './lib/template.js'
 
+import {
+	METHODS as leetcodeFunc
+} from './lib/leetcode.js'
+
 const defaultMethods = {
 	'Usage': {
 		func: function() {
@@ -45,7 +49,7 @@ var hub = {
 }
 
 function loadFuncs() {
-	hub = Object.assign({}, defaultMethods, pickerFunc,
+	hub = Object.assign({}, defaultMethods, pickerFunc,leetcodeFunc,
 		simpleFunc, jsonFunc, timeFunc, listFunc, templateFunc);
 	return Object.keys(hub);
 }

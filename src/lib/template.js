@@ -35,7 +35,6 @@ function fieldType(type) {
     P.alt(token(ignoreCaseString("(").then(P.digits).skip(ignoreCaseString(")"))), P.optWhitespace),
     P.alt(token(ignoreCaseString("(").then(P.digits).skip(word(",")).then(P.digit).skip(ignoreCaseString(")"))), P.optWhitespace),
     function (t, l, l2) {
-      console.log(l,l2);
       return t;
     })
 }
@@ -160,7 +159,6 @@ function argumentValue(name) {
 function tableComment() {
   return P.custom(function (success, failure) {
     return function (input, i) {
-      console.log(i,failure);// Overcome compile unused error
       const newStr = input.slice().toLowerCase();
       var index = newStr.lastIndexOf("comment");
       var lastBracket = input.lastIndexOf(")");
