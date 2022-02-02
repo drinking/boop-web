@@ -51,8 +51,8 @@ export default {
     return {
       output: '',
       editText:'',
-      operation:function() {
-        return ""
+      operation:function(text) {
+        return text;
       }
     };
   },
@@ -84,6 +84,7 @@ export default {
     },
     redirect() {
       this.$refs.editor.updateContent(this.output);
+      this.operation = function(text) {return text};
     }
   }
 }

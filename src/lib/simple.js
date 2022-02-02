@@ -33,6 +33,12 @@ var METHODS = {
     },
     usage: "Split text by space into a list of text"
   },
+  'SplitByComma': {
+    func: function(text) {
+      return text.split(',').join('\n');
+    },
+    usage: "Split text by comma into a list of text"
+  },
   'RemoveSpace': {
     func: function(text) {
       return text.replace(/\s/g, '');

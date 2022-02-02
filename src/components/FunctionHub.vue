@@ -1,7 +1,6 @@
 <template>
   <a-select
     mode="multiple"
-    autoClearSearchValue=true
     placeholder="Functions"
     :value="selectedItems"
     style="width: 80%;margin-top: 30px; max-width: 600px;"
@@ -74,9 +73,7 @@ export default {
         handler = this.selectedItems.length == 0 
                       ? function() {return ""}
                       : this.selectedItems
-                          .map(key => {
-                            return hub.mapFunc(key);
-                          })
+                          .map(key => {return hub.mapFunc(key)})
                           .reduce((acc,cur) => function(text) { return cur(acc(text)) })
 
       }
@@ -84,7 +81,8 @@ export default {
       this.$emit('handlers',handler)
       setTimeout(function(){ updateColor(selectedItems); }, 50);
 
-      var isRedirect = this.selectedItems.length > 0 && this.selectedItems[this.selectedItems.length-1] =='Redirect';
+      var isRedirect = this.selectedItems.length > 0 && 
+      this.selectedItems[this.selectedItems.length-1] =='Redirect';
       if(isRedirect) {
         this.selectedItems = []
         this.$emit('redirect',function(){})
