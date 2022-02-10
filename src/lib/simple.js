@@ -74,7 +74,7 @@ var METHODS = {
   'TrimSpace': {
     func: function(text) {
       return text.split('\n').map(c=> {
-        return c.replace(/\s\s+/g, ' ').trim()
+        return c.replace(/\t/g, ' ').replace(/\s\s+/g, ' ').trim()
       }).join('\n')
     },
     usage: "Remove start and end whitespaces and memrge several into one"
