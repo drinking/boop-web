@@ -30,28 +30,19 @@ const METHODS = {
   },
 
   'PickColumn': {
-    func: function(text) {
-
+    func: function(text,argument) {
       var array = text.replace(/\s\s+/g, ' ').split('\n')
-      if (array.length < 1) {
-        return ""
-      }
-
-      var numbers = array[0].match(/\d+/g).map(Number);
-      if (numbers.length == 0) {
-        return ""
-      }
-
-      const column = numbers[0]
+      const column = argument
       var result = []
-      for (var i = 1; i < array.length; i++) {
+      for (var i = 0; i < array.length; i++) {
         var t = array[i];
         result.push(t.split(' ')[column - 1])
       }
 
       return result.join('\n');
     },
-    usage: "pick the ith column from a row, each column is seperated by space"
+    usage: "pick the ith column from a row, each column is seperated by space",
+    argument : true
   }
 }
 

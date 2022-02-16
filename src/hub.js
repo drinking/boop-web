@@ -62,8 +62,13 @@ function mapUsage(name) {
 	return hub[name].usage
 }
 
+function needArgument(name) {
+	return true == hub[name].argument
+}
+
 export {
 	loadFuncs,
 	mapFunc,
-	mapUsage
+	mapUsage,
+	needArgument
 }

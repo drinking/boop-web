@@ -26,9 +26,12 @@
       <a href="https://github.com/drinking/boop-web/wiki" target="_blank">?</a>
     </div>
     <br/>
-    <FunctionHub @handlers="handle" @redirect="redirect" />
+    <FunctionHub ref="hub" @handlers="handle" @redirect="redirect" />
     <br/>
-    <EditArea id="editor" @transfer="update" ref="editor"/>
+    <div id="editorArea">
+      <ParamArea id="param" @transfer="updateArgs"/>
+      <EditArea id="editor" @transfer="update" ref="editor"/>
+    </div>
     <br/>
     <code id="output" >
       <button id="copyButton" v-on:click="copy" hidden=true>Copy</button>
@@ -40,6 +43,7 @@
 <script>
 import FunctionHub from './components/FunctionHub.vue'
 import EditArea from './components/EditArea.vue'
+import ParamArea from './components/ParamArea.vue'
 
 export default {
   name: 'App',
@@ -58,14 +62,20 @@ export default {
   },
   components: {
     FunctionHub,
-    EditArea
+    EditArea,
+    ParamArea
   },
   methods: {
+    updateArgs(text) {
+      this.$refs.hub.updateArgument(text);
+      this.output = this.operation(this.editText);
+      let button = document.getElementById("copyButton");
+      button.hidden = this.output.length > 0 ? false : true;
+    },
     update(text) {
       this.editText = text;
       this.output = this.operation(text);
       let button = document.getElementById("copyButton");
-
       button.hidden = this.output.length > 0 ? false : true;
     },
     handle(operation) {
@@ -101,10 +111,26 @@ export default {
   background-color: #121212;
 }
 
-#editor {
+#editorArea {
   margin-top:30px;
   margin-bottom:30px;
-  width:80%;
+  width:100%;
+  max-width: 600px;
+  height: 300px;
+  display: inline-block;
+}
+
+#editor {
+  margin-bottom:30px;
+  width:70%;
+  max-width: 600px;
+  height: 300px;
+}
+
+#param {
+  margin-bottom:30px;
+  width:28%;
+  margin-right: 2%;
   max-width: 600px;
   height: 300px;
 }

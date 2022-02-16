@@ -222,17 +222,12 @@ let SQLParser = P.createLanguage({
 
 var METHODS = {
   'Template': {
-    func: function(text) {
-
+    func: function(text,argument) {
       var array = text.split('\n')
-      if (array.length < 2) {
-        return ""
-      }
-
       var result = []
-      for (var i = 1; i < array.length; i++) {
+      for (var i = 0; i < array.length; i++) {
         let params = array[i].split(" ");
-        var template = array[0];
+        var template = argument;
         for (var j = params.length - 1; j >= 0; j--) {
           template = template.replaceAll("$" + j, params[j])
         }
@@ -241,7 +236,8 @@ var METHODS = {
 
       return result.join('\n');
     },
-    usage: "params: write template in the first line and $i represent the ith column like $0 + $1 = $2 which will generate a equation sentense."
+    usage: "params: write template in the first line and $i represent the ith column like $0 + $1 = $2 which will generate a equation sentense.",
+    argument: true
   },
   'SQLTableColumns' :{
     func:function(text) {

@@ -78,6 +78,21 @@ var METHODS = {
       }).join('\n')
     },
     usage: "Remove start and end whitespaces and memrge several into one"
+  },
+  'CountWords': {
+    func: function(text) {
+      if(text === null) {
+        return ""
+      }
+      return text.length;
+    },
+    usage: "Count number of words"
+  },
+  'CountLines': {
+    func: function(text) {
+      return text.split('\n').length;
+    },
+    usage: "Count number of lines"
   }
 }
 

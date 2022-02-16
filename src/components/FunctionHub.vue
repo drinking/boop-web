@@ -49,6 +49,7 @@ export default {
     return {
       selectedItems: [],
       options:[],
+      argument:""
     };
   },
   computed: {
@@ -70,10 +71,19 @@ export default {
             return hub.mapUsage(lastText)
           }
       } else {
+        const argument = this.argument
         handler = this.selectedItems.length == 0 
                       ? function() {return ""}
                       : this.selectedItems
-                          .map(key => {return hub.mapFunc(key)})
+                          .map(key => {
+                            if(hub.needArgument(key)) {
+                              return function(text) {
+                                return hub.mapFunc(key)(text,argument);
+                              }
+                            }else {
+                              return hub.mapFunc(key)
+                            }
+                          })
                           .reduce((acc,cur) => function(text) { return cur(acc(text)) })
 
       }
@@ -89,6 +99,10 @@ export default {
       }
 
     },
+    updateArgument(text) {
+      this.argument = text;
+      this.handleChange(this.selectedItems);
+    }
   },
 };
 </script>

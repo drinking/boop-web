@@ -2,12 +2,12 @@
   <a-textarea 
   :rows="4"
   :value="content"
-  placeholder="Text filed, e.g. Type Hi above then Tab here and input your name." 
+  placeholder="Paramaters here" 
   @change="handleChange"
   />
 </template>
-<script>
 
+<script>
 export default {
   data() {
     return {
@@ -17,10 +17,7 @@ export default {
   methods: {
     handleChange(e) {
       this.$emit('transfer',e.target.value)
-    },
-    updateContent(text) {
-      this.content = text
-    },
+    }
   },
 };
 
