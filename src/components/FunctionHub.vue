@@ -59,11 +59,24 @@ export default {
   },
   methods: {
     handleChange(selectedItems) {
+
       this.selectedItems = selectedItems;
-
       var handler;
-
       var isUsage = this.selectedItems.length > 0 && this.selectedItems[0] =='Usage';
+
+      var close = true
+      for (var i = selectedItems.length - 1; i >= 0; i--) {
+        if(hub.needArgument(selectedItems[i])){
+          this.$emit('open',function(){})
+          close = false;
+          break;
+        }
+      }
+
+      if(close) {
+        this.$emit('close',function(){})
+      }
+
 
       if(isUsage) {
           var lastText = selectedItems[selectedItems.length-1]

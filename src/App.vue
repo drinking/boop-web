@@ -26,7 +26,7 @@
       <a href="https://github.com/drinking/boop-web/wiki" target="_blank">?</a>
     </div>
     <br/>
-    <FunctionHub ref="hub" @handlers="handle" @redirect="redirect" />
+    <FunctionHub ref="hub" @handlers="handle" @redirect="redirect" @open="openParamArea" @close="closeParamArea" />
     <br/>
     <div id="editorArea">
       <ParamArea id="param" @transfer="updateArgs"/>
@@ -95,6 +95,14 @@ export default {
     redirect() {
       this.$refs.editor.updateContent(this.output);
       this.operation = function(text) {return text};
+    },
+    openParamArea() {
+      document.getElementById("param").setAttribute("style","display:inline;");
+      document.getElementById("editor").setAttribute("style","width:60%;");
+    },
+    closeParamArea() {
+      document.getElementById("param").setAttribute("style","display:none;");
+      document.getElementById("editor").setAttribute("style","width:100%;");
     }
   }
 }
@@ -117,22 +125,23 @@ export default {
   width:100%;
   max-width: 600px;
   height: 300px;
-  display: inline-block;
+  display: inline-flex;
 }
 
 #editor {
   margin-bottom:30px;
-  width:70%;
+  width:100%;
   max-width: 600px;
   height: 300px;
 }
 
 #param {
   margin-bottom:30px;
-  width:28%;
-  margin-right: 2%;
   max-width: 600px;
+  width:40%;
+  margin-right: 2%;
   height: 300px;
+  display: none;
 }
 
 #output {

@@ -30,12 +30,6 @@ var METHODS = {
       return Array.from(set).join('\n');
     },
     usage: "Make elements in list is unique"
-  },
-  'CountList': {
-    func: function(text) {
-      return text.replace(/\n$/, '').split('\n').length
-    },
-    usage: "Count line number of a list"
   }
 }
 
