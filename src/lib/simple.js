@@ -45,11 +45,12 @@ var METHODS = {
     },
     usage: "Remove all whitespace from text"
   },
-  'JoinLines': {
-    func: function(text) {
-      return text.replace(/\n/g, '');
+  'JoinLinesWith': {
+    func: function(text,argument) {
+      return text.replace(/\n/g, argument);
     },
-    usage: "Join multiple lines of text into one line"
+    usage: "Join multiple lines of text into one line",
+    argument: true
   },
   'JoinLinesWithComma': {
     func: function(text) {
@@ -93,6 +94,20 @@ var METHODS = {
       return text.split('\n').length;
     },
     usage: "Count number of lines"
+  },
+  'HumpToUnderline':{
+    func:function(text) {
+      return text.replace(/\B([A-Z])/g, '_$1').toLowerCase()
+    },
+    usage: "Convert hump text to underline"
+  },
+  'UnderlineToHump':{
+    func:function(text) {
+      return text.replace(/_(\w)/g, function(all,letter){
+        return letter.toUpperCase();
+      });
+    },
+    usage: "Convert underline text to hump"
   }
 }
 

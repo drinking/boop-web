@@ -84,13 +84,13 @@ function toJavaType(sqlType) {
     type == "mediumint" ||
     type == "integer" ||
     type == "int") {
-    return "int";
+    return "Integer";
   } else if (type == "bigint") {
-    return "long";
+    return "Long";
   } else if (type == "float") {
-    return "float";
+    return "Float";
   } else if (type == "double") {
-    return "double"
+    return "Double"
   } else if (type == "decimal") {
     return "BigDecimal"
   } else if (type == "varchar" ||
@@ -116,7 +116,7 @@ function toJavaType(sqlType) {
     return "byte []"
   } else if (type == "bit" ||
     type == "boolean") {
-    return "boolean";
+    return "Boolean";
   } else {
     return "Object";
   }

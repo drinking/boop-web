@@ -115,15 +115,15 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 50px;
   background-color: #121212;
+  padding: 40px;
 }
 
 #editorArea {
   margin-top:30px;
   margin-bottom:30px;
   width:100%;
-  max-width: 600px;
+  max-width: 800px;
   height: 300px;
   display: inline-flex;
 }
@@ -131,13 +131,11 @@ export default {
 #editor {
   margin-bottom:30px;
   width:100%;
-  max-width: 600px;
   height: 300px;
 }
 
 #param {
   margin-bottom:30px;
-  max-width: 600px;
   width:40%;
   margin-right: 2%;
   height: 300px;
@@ -146,8 +144,8 @@ export default {
 
 #output {
   color: #fff;
-  width: 80%; 
-  max-width: 600px;
+  width: 100%; 
+  max-width: 800px;
   overflow: auto; 
   display: inline-block;
   word-wrap:break-word;

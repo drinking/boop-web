@@ -30,7 +30,24 @@ var METHODS = {
       return Array.from(set).join('\n');
     },
     usage: "Make elements in list is unique"
-  }
+  },
+  'AppendList': {
+    func: function(text,argument) {
+      var list = text.replace(/\n$/, '').split('\n');
+      var args = argument.replace(/\n$/, '').split('\n');
+      var result = []
+      for (var i = 0; i < list.length; i++) {
+        if(i< args.length) {
+          result.push(list[i] + ' ' + args[i])
+        }else {
+          result.push(list[i])
+        }
+      }
+      return result.join('\n');
+    },
+    usage: "Append each row of arguments to list",
+    argument: true
+  },
 }
 
 export {

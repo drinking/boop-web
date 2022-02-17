@@ -3,7 +3,7 @@
     mode="multiple"
     placeholder="Functions"
     :value="selectedItems"
-    style="width: 80%;margin-top: 30px; max-width: 600px;"
+    style="width: 100%;margin-top: 30px; max-width: 800px;"
     @change="handleChange">
     <a-select-option v-for="item in filteredOptions" :key="item" :value="item">
       {{ item }}
@@ -77,7 +77,6 @@ export default {
         this.$emit('close',function(){})
       }
 
-
       if(isUsage) {
           var lastText = selectedItems[selectedItems.length-1]
           handler = function() {
@@ -96,8 +95,9 @@ export default {
                             }else {
                               return hub.mapFunc(key)
                             }
+                          }).reduce((acc,cur) => function(text) {
+                            return cur(acc(text)) 
                           })
-                          .reduce((acc,cur) => function(text) { return cur(acc(text)) })
 
       }
 
