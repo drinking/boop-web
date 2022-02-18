@@ -29,7 +29,7 @@
     <FunctionHub ref="hub" @handlers="handle" @redirect="redirect" @open="openParamArea" @close="closeParamArea" />
     <br/>
     <div id="editorArea">
-      <ParamArea id="param" @transfer="updateArgs"/>
+      <ParamArea id="param" @transfer="updateArgs" ref="paramter" />
       <EditArea id="editor" @transfer="update" ref="editor"/>
     </div>
     <br/>
@@ -103,6 +103,7 @@ export default {
     closeParamArea() {
       document.getElementById("param").setAttribute("style","display:none;");
       document.getElementById("editor").setAttribute("style","width:100%;");
+      this.$refs.paramter.clear();
     }
   }
 }

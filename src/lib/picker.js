@@ -1,7 +1,6 @@
 const METHODS = {
 
   'PickRows': {
-
     func: function(text,argument) {
       var numbers = argument.match(/\d+/g).map(Number);
       if (numbers.length < 2) {
@@ -14,7 +13,7 @@ const METHODS = {
       var result = []
       var array = text.replace(/\s\s+/g, ' ').split('\n')
       for (var i = 0; i < array.length; i++) {
-        if (i % total == row) {
+        if ((i+1) % total == row) {
           result.push(array[i])
         }
       }

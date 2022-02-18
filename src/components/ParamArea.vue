@@ -11,14 +11,19 @@
 export default {
   data() {
     return {
-      content: ""
+      content: null
     };
   },
   methods: {
     handleChange(e) {
       this.$emit('transfer',e.target.value)
+      // if don't update content here, clear content won't happen
+      this.content = e.target.value; 
+    },
+    clear() {
+      this.content = null
     }
-  },
+  }
 };
 
 </script>
