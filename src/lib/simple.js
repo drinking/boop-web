@@ -80,12 +80,21 @@ var METHODS = {
     },
     usage: "Remove start and end whitespaces and memrge several into one"
   },
-  'CountWords': {
+  'CountChar': {
     func: function(text) {
       if(text === null) {
         return ""
       }
       return text.length;
+    },
+    usage: "Count number of character"
+  },
+  'CountWords': {
+    func: function(text) {
+      if(text === null) {
+        return ""
+      }
+      return text.replace(/\t/g, ' ').replace(/\s\s+/g, ' ').trim().split(' ').length;
     },
     usage: "Count number of words"
   },
