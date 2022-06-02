@@ -80,14 +80,14 @@ var METHODS = {
     },
     usage: "Remove start and end whitespaces and memrge several into one"
   },
-  'CountChar': {
+  'CountChars': {
     func: function(text) {
       if(text === null) {
         return ""
       }
       return text.length;
     },
-    usage: "Count number of character"
+    usage: "Count characters"
   },
   'CountWords': {
     func: function(text) {
@@ -96,13 +96,13 @@ var METHODS = {
       }
       return text.replace(/\t/g, ' ').replace(/\s\s+/g, ' ').trim().split(' ').length;
     },
-    usage: "Count number of words"
+    usage: "Count words"
   },
   'CountLines': {
     func: function(text) {
       return text.split('\n').length;
     },
-    usage: "Count number of lines"
+    usage: "Count lines"
   },
   'HumpToUnderline':{
     func:function(text) {
@@ -117,6 +117,20 @@ var METHODS = {
       });
     },
     usage: "Convert underline text to hump"
+  }
+  ,
+  'EncodeURI':{
+    func:function(text) {
+      return encodeURIComponent(text);
+    },
+    usage: "Encode URI"
+  }
+  ,
+  'DecodeURI':{
+    func:function(text) {
+      return decodeURIComponent(text);
+    },
+    usage: "Decode URI"
   }
 }
 
