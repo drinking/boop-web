@@ -23,6 +23,10 @@ import {
 	METHODS as leetcodeFunc
 } from './lib/leetcode.js'
 
+import {
+	METHODS as csFunc
+} from './lib/cheat-sheet.js'
+
 const defaultMethods = {
 	'Usage': {
 		func: function() {
@@ -50,7 +54,7 @@ var hub = {
 
 function loadFuncs() {
 	hub = Object.assign({}, defaultMethods, pickerFunc,leetcodeFunc,
-		simpleFunc, jsonFunc, timeFunc, listFunc, templateFunc);
+		simpleFunc, jsonFunc, timeFunc, listFunc, templateFunc, csFunc);
 	return Object.keys(hub);
 }
 

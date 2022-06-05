@@ -33,9 +33,9 @@
       <EditArea id="editor" @transfer="update" ref="editor"/>
     </div>
     <br/>
-    <code id="output" >
+    <code v-html="output" id="output" >
       <button id="copyButton" v-on:click="copy" hidden=true>Copy</button>
-      {{ output }}
+      <!-- {{ output }} -->
     </code>
   </div>
 </template>
