@@ -1,9 +1,9 @@
 <template>
-  <a-textarea 
-  :rows="4"
-  :value="content"
-  placeholder="Paramaters here" 
-  @change="handleChange"
+  <a-textarea
+      :rows="4"
+      :value="content"
+      placeholder="Parameters here"
+      @change="handleChange"
   />
 </template>
 
@@ -16,9 +16,9 @@ export default {
   },
   methods: {
     handleChange(e) {
-      this.$emit('transfer',e.target.value)
+      this.$emit('transfer', e.target.value)
       // if don't update content here, clear content won't happen
-      this.content = e.target.value; 
+      this.content = e.target.value;
     },
     clear() {
       this.content = null

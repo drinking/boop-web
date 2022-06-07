@@ -70,15 +70,14 @@ tr:nth-child(even) {
   
 `
 
-var METHODS = {
-  'CSGit': {
-    func: function(text) {
-      return html;
+const METHODS = {
+    'CSGit': {
+        func: function (text) {
+            return html;
+        }, usage: "Cheat sheet about Git"
     },
-    usage: "Cheat sheet about Git"
-  },
-}
+};
 
 export {
-  METHODS
+    METHODS
 }
