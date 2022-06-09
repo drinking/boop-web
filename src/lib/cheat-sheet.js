@@ -65,7 +65,11 @@ tr:nth-child(even) {
     <td>git reset --hard [commit]</td>
     <td>clear staging area, rewrite working tree from speciﬁed commit</td>
   </tr>
-
+    </tr>
+   <tr>
+    <td>git clean -fxd</td>
+    <td>delete untracked files, directories and untracked . gitignore files</td>
+  </tr>
 </table>
   
 `
