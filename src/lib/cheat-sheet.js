@@ -1,53 +1,28 @@
 const mustache = require('mustache');
-const json =
-    {
-        "list": [
-            {
-                "command": "git config --global user.name “[firstname lastname]”",
-                "explain": "set a name that is identiﬁable for credit when review version history"
-            },
-            {
-                "command": "git config --global user.email “[valid-email]”",
-                "explain": "set an email address that will be associated with each history marker"
-            },
-            {
-                "command": "git config --global color.ui auto",
-                "explain": "set automatic command line coloring for Git for easy reviewing"
-            },
-            {
-                "command": "git diff",
-                "explain": "diﬀ of what is changed but not staged"
-            },
-            {
-                "command": "git diff --staged",
-                "explain": "diﬀ of what is staged but not yet committed"
-            },
-            {
-                "command": "git log branchB..branchA",
-                "explain": "show the commits on branchA that are not on branchB"
-            },
-            {
-                "command": "git diff branchB...branchA",
-                "explain": "show the diﬀ of what is in branchA that is not in branchB"
-            },
-            {
-                "command": "git show [SHA]",
-                "explain": "show any object in Git in human-readable format"
-            }, {
-                "command": "git rebase [branch]",
-                "explain": "apply any commits of current branch ahead of speciﬁed one"
-            },
-            {
-                "command": "git reset --hard [commit]",
-                "explain": "clear staging area, rewrite working tree from speciﬁed commit"
-            },
-            {
-                "command": "git clean -fxd",
-                "explain": "delete untracked files, directories and untracked . gitignore files"
-            }
-        ]
-
-    };
+const gitCommands = [
+    "git config --global user.name “[firstname lastname]”",
+    "set a name that is identiﬁable for credit when review version history",
+    "git config --global user.email “[valid-email]”",
+    "set an email address that will be associated with each history marker",
+    "git config --global color.ui auto",
+    "set automatic command line coloring for Git for easy reviewing",
+    "git diff",
+    "diﬀ of what is changed but not staged",
+    "git diff --staged",
+    "diﬀ of what is staged but not yet committed",
+    "git log branchB..branchA",
+    "show the commits on branchA that are not on branchB",
+    "git diff branchB...branchA",
+    "show the diﬀ of what is in branchA that is not in branchB",
+    "git show [SHA]",
+    "show any object in Git in human-readable format",
+    "git rebase [branch]",
+    "apply any commits of current branch ahead of speciﬁed one",
+    "git reset --hard [commit]",
+    "clear staging area, rewrite working tree from speciﬁed commit",
+    "git clean -fxd",
+    "delete untracked files, directories and untracked . gitignore files"
+]
 
 const template = `
 <style>
@@ -85,12 +60,22 @@ tr:nth-child(even) {
   
 `
 
+function buildData(commands) {
+    let list = [];
+    for (let i = 0; i < commands.length; i++) {
+        list.push({
+            "command": commands[i],
+            "explain": commands[i + 1]
+        })
+        i++
+    }
+    return {"list": list};
+}
+
 const METHODS = {
     'Git Cheat Sheet': {
         func: function (text) {
-            const result = mustache.render(template, json);
-            console.log(result);
-            return result;
+            return mustache.render(template, buildData(gitCommands));
         }, usage: "Cheat sheet about Git"
     },
 };
