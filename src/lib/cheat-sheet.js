@@ -24,6 +24,18 @@ const gitCommands = [
     "delete untracked files, directories and untracked . gitignore files"
 ]
 
+const vimCommands = [
+    "%  match paired bracket",
+    "*/#  find the next/previous instance of the current word",
+    // navigation
+    "gg  first line of the file",
+    "G  last line of the file",
+    ":20  line20 of the file",
+    ":1,2t.  copy lines 1 to 2 to current line",
+    ":1,2t3  copy lines 1 to 2 to line 3",
+    "^  first non-whitespace character of current line"
+]
+
 const template = `
 <style>
 table {
@@ -47,8 +59,8 @@ tr:nth-child(even) {
 
 <table>
   <tr>
-    <th>Command</th>
-    <th>Explain</th>
+    <th>{{column1}}</th>
+    <th>{{column2}}</th>
   </tr>
   {{#list}}
     <tr>
@@ -69,15 +81,26 @@ function buildData(commands) {
         })
         i++
     }
-    return {"list": list};
+    return list;
 }
 
 const METHODS = {
     'Git Cheat Sheet': {
         func: function (text) {
-            return mustache.render(template, buildData(gitCommands));
+            return mustache.render(template, {"list": buildData(gitCommands),
+                "column1":"Command",
+                "column2":"Explain"
+            });
         }, usage: "Cheat sheet about Git"
     },
+    'Vim Cheat Sheet': {
+        func: function (text) {
+            return mustache.render(template, {"list": buildData(vimCommands),
+                "column1":"Command",
+                "column2":""
+            });
+        }, usage: "Cheat sheet about Vim"
+    }
 };
 
 export {
