@@ -25,15 +25,26 @@ const gitCommands = [
 ]
 
 const vimCommands = [
-    "%  match paired bracket",
+    "%  move to matching parenthesis, bracket or brace",
     "*/#  find the next/previous instance of the current word",
-    // navigation
+    // Navigation
     "gg  first line of the file",
     "G  last line of the file",
     ":20  line20 of the file",
     ":1,2t.  copy lines 1 to 2 to current line",
     ":1,2t3  copy lines 1 to 2 to line 3",
-    "^  first non-whitespace character of current line"
+    "0  beginning of current line",
+    // Editing
+    "I  insert at the first non-whitespace character of the line",
+    "U  Undo, Ctrl+R  Redo",
+    // Copy/pasting
+    "C  change the rest of the current line",
+    "D  delete the rest of the current line",
+    "cw  change one word",
+    "c4w  change four words",
+    "c4l change four letters",
+    "cc  change current line",
+    "4x  change four characters after the cursor",
 ]
 
 const template = `
